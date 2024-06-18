@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	qmake
+
+override_dh_auto_build:
+	dh_auto_build -- make
+
+override_dh_auto_install:
+	dh_auto_install -- make INSTALL_ROOT=$(CURDIR)/debian/myproject
+
